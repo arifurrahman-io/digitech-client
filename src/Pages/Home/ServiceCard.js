@@ -14,7 +14,7 @@ const ServiceCard = ({ service }) => {
                 <h4 className='text-2xl'>${price}</h4>
                 <p>{decription.slice(0, 100) + '...'}</p>
                 <div className="card-actions justify-end">
-                    <Link to={`/checkout/${_id}`}>
+                    <Link to={`/service/${_id}`}>
                         <button className="btn btn-sm btn-outline btn-warning"><FaLongArrowAltRight /></button>
                     </Link>
                 </div>
