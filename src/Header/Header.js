@@ -4,7 +4,7 @@ import logo from '../digitect_logo.png'
 
 const Header = () => {
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-primary">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -15,10 +15,10 @@ const Header = () => {
                         <li><Link to='/services'>Services</Link></li>
                     </ul>
                 </div>
-                <Link to='/' className="btn btn-ghost normal-case text-xl"><img src={logo} className="w-28" alt="" /></Link>
+                <Link to='/' className="normal-case text-xl"><img src={logo} className="w-28" alt="" /></Link>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal p-0">
+                <ul className="menu menu-horizontal p-0 text-xl font-semibold text-white">
                     <li><Link to='/'>Home</Link></li>
                     <li><Link to='/services'>Services</Link></li>
                 </ul>
