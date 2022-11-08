@@ -3,6 +3,8 @@ import Main from "../Layout/Main";
 import Home from "../Pages/Home/Home";
 import Service from "../Pages/Service/Service";
 import Services from "../Pages/Services/Services";
+import SignIn from "../Pages/SignIn/SignIn";
+import SignUp from "../Pages/SignUp/SignUp";
 
 export const routes = createBrowserRouter([
     {
@@ -18,9 +20,17 @@ export const routes = createBrowserRouter([
                 element: <Services></Services>
             },
             {
-                path: '/service/:id',
+                path: '/services/:id',
                 element: <Service></Service>,
-                loader: ({ params }) => fetch(`http://localhost:5000/service/${params.id}`)
+                loader: ({ params }) => fetch(`https://digitech-server.vercel.app/services/${params.id}`)
+            },
+            {
+                path: '/signup',
+                element: <SignUp></SignUp>
+            },
+            {
+                path: '/signin',
+                element: <SignIn></SignIn>
             }
         ]
     }

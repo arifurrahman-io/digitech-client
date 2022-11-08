@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../Context/AuthProvider';
 import logo from '../digitect_logo.png'
 
 const Header = () => {
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
+
     return (
         <div className="navbar bg-primary">
             <div className="navbar-start">
@@ -23,8 +32,23 @@ const Header = () => {
                     <li><Link to='/services'>Services</Link></li>
                 </ul>
             </div>
-            <div className="navbar-end">
-                <Link className="btn">Get started</Link>
+            <div className="navbar-end text-white ">
+                {
+                    user?.uid ?
+                        <>
+                            <Link><button onClick={handleLogOut} className='px-3 text-xl'>Sign Out</button></Link>
+                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar pl-2">
+                                <div className="w-10 rounded-full">
+                                    <img src={user?.photoURL} alt='' />
+                                </div>
+                            </label>
+                        </> :
+                        <>
+                            <Link to='/signup' className='px-3 text-xl '><button>Signup</button></Link>
+                            <Link to='/signin' className='px-3 text-xl '><button>Signin</button></Link>
+                        </>
+                }
+
             </div>
         </div>
     );

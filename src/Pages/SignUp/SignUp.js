@@ -1,0 +1,76 @@
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import img from '../../signup.jpg'
+import { AuthContext } from '../../Context/AuthProvider';
+import toast from 'react-hot-toast';
+
+const SignUp = () => {
+    const { createUser, updateUserProfile } = useContext(AuthContext);
+    const handleSignup = event => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const url = form.photourl.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        createUser(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                form.reset();
+                handleUpdateUserProfile(name, url);
+                toast.success('Registration Successful!');
+            })
+            .catch(err => {
+                console.error(err);
+                if (err.code === "auth/email-already-in-use") {
+                    toast.error('This email already used!')
+                }
+            });
+
+    }
+
+    const handleUpdateUserProfile = (name, url) => {
+        const profile = {
+            displayName: name,
+            photoURL: url
+        }
+
+        updateUserProfile(profile)
+            .then(() => { })
+            .catch(e => console.error(e));
+
+    }
+    return (
+        <div className="hero w-full">
+            <div className="hero-content grid gap-20 md:grid-cols-2 flex-col lg:flex-row">
+                <div className="text-center">
+                    <img className='w-full' src={img} alt="" />
+                </div>
+                <form onSubmit={handleSignup} className="card flex-shrink-0 w-full shadow-2xl bg-base-100">
+                    <div className="card-body">
+                        <div className="form-control">
+                            <input type="text" name='name' placeholder="Name" className="input input-bordered" required />
+                        </div>
+                        <div className="form-control">
+                            <input type="text" name='photourl' placeholder="Photo URL" className="input input-bordered" />
+                        </div>
+                        <div className="form-control">
+                            <input type="email" name='email' placeholder="Your Email" className="input input-bordered" required />
+                        </div>
+                        <div className="form-control">
+                            <input type="password" name='password' placeholder="Password" className="input input-bordered" required />
+                        </div>
+                        <div className="form-control mt-6">
+                            <input className='btn btn-primary' type="submit" value="Sign Up" />
+                        </div>
+                    </div>
+                    <p className='text-center mb-6'>Already member? <Link className='text-orange-600 font-bold ' to='/signin'>Sign In</Link></p>
+                </form>
+
+            </div>
+        </div>
+    );
+};
+
+export default SignUp;

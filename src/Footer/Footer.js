@@ -8,7 +8,7 @@ const Footer = () => {
             <div>
                 <img src={logo} className="w-40" alt="" />
                 <p className="font-bold">
-                    Providing reliable wildlife photos since 2012
+                    Providing reliable tech solution since 2015
                 </p>
                 <p>Copyright © 2022 - All right reserved</p>
             </div>
