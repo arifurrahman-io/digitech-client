@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../wild_logo.png'
+import logo from '../digitect_logo.png'
 
 const Header = () => {
     return (
@@ -12,13 +12,15 @@ const Header = () => {
                     </label>
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <li><Link to='/'>Home</Link></li>
+                        <li><Link to='/services'>Services</Link></li>
                     </ul>
                 </div>
-                <Link to='/' className="btn btn-ghost normal-case text-xl"><img src={logo} className="w-12" alt="" />Wild-Life</Link>
+                <Link to='/' className="btn btn-ghost normal-case text-xl"><img src={logo} className="w-28" alt="" /></Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
                     <li><Link to='/'>Home</Link></li>
+                    <li><Link to='/services'>Services</Link></li>
                 </ul>
             </div>
             <div className="navbar-end">

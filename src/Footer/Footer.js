@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../wild_logo.png';
+import logo from '../digitect_logo.png';
 
 const Footer = () => {
     return (
         <footer className="footer footer-center p-10 bg-primary text-primary-content">
             <div>
-                <img src={logo} className="w-20" alt="" />
+                <img src={logo} className="w-40" alt="" />
                 <p className="font-bold">
-                    Wild-Life <br />Providing reliable wildlife photos since 2012
+                    Providing reliable wildlife photos since 2012
                 </p>
                 <p>Copyright © 2022 - All right reserved</p>
             </div>

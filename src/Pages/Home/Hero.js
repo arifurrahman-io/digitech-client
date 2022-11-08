@@ -3,7 +3,7 @@ import React from 'react';
 const Hero = () => {
     return (
         <div>
-            <div className="hero min-h-screen" style={{ backgroundImage: `url("https://www.bihongo.net/wp-content/uploads/2022/11/wild-hero.jpg")` }}>
+            <div className="hero min-h-screen" style={{ backgroundImage: `url("https://www.bihongo.net/wp-content/uploads/2022/11/bigstock-Repair-motherboard-in-electron-135850715-1024x683-1.jpg")` }}>
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-md">
