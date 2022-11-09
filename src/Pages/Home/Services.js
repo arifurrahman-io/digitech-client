@@ -1,16 +1,28 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import ServiceCard from './ServiceCard';
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthProvider';
 
 const Services = () => {
-
+    const { loading } = useContext(AuthContext);
     const [services, setServices] = useState([]);
+
     useEffect(() => {
         fetch('https://digitech-server.vercel.app/services')
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])
+
+    if (loading) {
+        return <div>
+            <button type="button" disabled>
+                <svg className="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24">
+                </svg>
+                Loading...
+            </button>
+        </div>
+    }
 
     return (
         <div className='py-8'>
