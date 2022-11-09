@@ -25,22 +25,30 @@ const Reviews = () => {
                     <h3>Number of Reviews : 0{reviews.length}</h3>
                 </div>
             </div>
-            <table className="table w-full my-5">
-                <thead>
-                    <tr>
-                        <th>Image</th>
-                        <th>Service Name</th>
-                        <th>Your Review</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        reviews?.length && reviews.map(rev => <ReviewCard
-                            key={rev._id} rev={rev}></ReviewCard>)
-                    }
-                </tbody>
-            </table>
+            {reviews?.length > 0 ?
+                <>
+                    <table className="table w-full my-5">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Service Name</th>
+                                <th>Your Review</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                reviews?.length && reviews.map(rev => <ReviewCard
+                                    key={rev._id} rev={rev}></ReviewCard>)
+                            }
+                        </tbody>
+                    </table>
+                </>
+                :
+                <>
+                    <h1 className='text-center text-5xl font-bold'>No Reviews Found!</h1>
+                </>
+            }
         </div >
     );
 };
