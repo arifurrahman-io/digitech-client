@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const ReviewCard = ({ rev }) => {
 
@@ -46,7 +47,7 @@ const ReviewCard = ({ rev }) => {
             </td>
             <td>{review}</td>
             <th>
-                <button className="btn btn-ghost btn-xs">Edit</button>
+                <Link to={`/updatereview/${_id}`}><button className="btn btn-ghost btn-xs">Edit</button></Link>
                 <button className="btn btn-ghost btn-xs" onClick={() => handleDelete(rev)}>Delete</button>
             </th>
         </tr>
