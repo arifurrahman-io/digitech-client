@@ -9,19 +9,20 @@ const ReviewSection = () => {
     const service = useLoaderData();
     const { _id, title, image } = service;
 
-    const { user } = useContext(AuthContext);
+    const id = _id;
 
+    const { user } = useContext(AuthContext);
 
 
     const [review, setReview] = useState({});
     const [reviews, setReviews] = useState({});
 
     useEffect(() => {
-        fetch(`https://digitech-server.vercel.app/reviews?_id=${service._id}`)
+        fetch(`https://digitech-server.vercel.app/reviews?id=${service.id}`)
             .then(res => res.json())
             .then(data => setReviews(data))
 
-    }, [service._id]);
+    }, [service.id]);
 
 
     const handleAddReview = event => {
@@ -49,7 +50,7 @@ const ReviewSection = () => {
     const handleInputBlur = event => {
         const field = event.target.name;
         const value = event.target.value;
-        const newReview = { ...review, _id, title, image, user }
+        const newReview = { id, review, title, image, user }
         newReview[field] = value;
         setReview(newReview);
     }
@@ -61,7 +62,7 @@ const ReviewSection = () => {
                     <h3>Total Reviews: {reviews?.length}</h3>
                     <div className='my-5'>
                         {
-                            reviews?.length && reviews.map(r => <ReviewRow key={r._id} r={r}></ReviewRow>)
+                            reviews?.length && reviews.map(r => <ReviewRow key={r.id} r={r}></ReviewRow>)
                         }
                     </div>
                 </div>
