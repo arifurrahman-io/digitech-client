@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const Services = () => {
-    const { loading } = useContext(AuthContext);
     const [services, setServices] = useState([]);
+    const { loading } = useContext(AuthContext);
 
     useEffect(() => {
         fetch('https://digitech-server.vercel.app/services')

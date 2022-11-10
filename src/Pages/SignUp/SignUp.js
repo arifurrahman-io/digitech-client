@@ -1,11 +1,15 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import img from '../../signup.jpg'
 import { AuthContext } from '../../Context/AuthProvider';
 import toast from 'react-hot-toast';
 
 const SignUp = () => {
-    const { createUser, updateUserProfile } = useContext(AuthContext);
+    const { createUser, updateUserProfile, loading } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+
     const handleSignup = event => {
         event.preventDefault();
         const form = event.target;
@@ -20,6 +24,7 @@ const SignUp = () => {
                 form.reset();
                 handleUpdateUserProfile(name, url);
                 toast.success('Registration Successful!');
+                navigate(from, { replace: true });
             })
             .catch(err => {
                 console.error(err);
@@ -41,6 +46,18 @@ const SignUp = () => {
             .catch(e => console.error(e));
 
     }
+
+    if (loading) {
+        return <div>
+            <button type="button" disabled>
+                <svg className="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24">
+                </svg>
+                Loading...
+            </button>
+        </div>
+    }
+
+
     return (
         <div className="hero w-full">
             <div className="hero-content grid gap-20 md:grid-cols-2 flex-col lg:flex-row">

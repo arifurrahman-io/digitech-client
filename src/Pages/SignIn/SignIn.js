@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 import img from '../../signup.jpg';
 import google from '../../google.png';
@@ -8,7 +8,7 @@ import { GoogleAuthProvider } from 'firebase/auth';
 
 const SignIn = () => {
 
-    const { signIn, providerLogin } = useContext(AuthContext);
+    const { signIn, providerLogin, loading } = useContext(AuthContext);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -48,8 +48,19 @@ const SignIn = () => {
                 navigate(from, { replace: true });
             })
             .catch(error => console.error(error));
-
+        if (loading) {
+            return <div>
+                <button type="button" disabled>
+                    <svg className="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24">
+                    </svg>
+                    Loading...
+                </button>
+            </div>
+        }
     }
+
+
+
 
     return (
         <div className="hero w-full">

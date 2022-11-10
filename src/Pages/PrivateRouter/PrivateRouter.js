@@ -3,8 +3,8 @@ import { Navigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const PrivateRouter = ({ children }) => {
-    const { user, loading } = useContext(AuthContext);
     const location = useLocation();
+    const { user, loading } = useContext(AuthContext);
     if (loading) {
         return <div>
             <button type="button" disabled>
