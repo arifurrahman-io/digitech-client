@@ -9,7 +9,7 @@ const Reviews = () => {
     const [reviews, setReviews] = useState({});
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myreviews?email=${user?.email}`)
+        fetch(`https://digitech-server.vercel.app/myreviews?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setReviews(data))
 

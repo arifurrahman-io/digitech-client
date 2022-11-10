@@ -3,26 +3,26 @@ import React, { useState } from 'react';
 const ReviewCard = ({ rev }) => {
 
 
-    const { image, title, review } = rev;
+    const { _id, image, title, review } = rev;
 
     const [displayReview, setdisplayReview] = useState(rev);
 
 
-    const handleDelete = rev => {
-        const agree = window.confirm(`Are you sure to delete ${rev.title}`);
+    const handleDelete = () => {
+        const agree = window.confirm(`Are you sure you want to delete, ${title}`)
         if (agree) {
-            fetch(`http://localhost:5000/myreviews/${rev._id}`, {
+            fetch(`https://digitech-server.vercel.app/myreviews/${_id}`, {
                 method: 'DELETE'
             })
-                .than(res => res.json())
+                .then(res => res.json())
                 .then(data => {
+                    console.log(data)
                     if (data.deletedCount > 0) {
-                        alert('User deleted successfully.');
+                        alert('Review Deleted!')
                         const remainingUsers = displayReview
-                            .filter(usr => usr._id !== rev._id);
+                            .filter(usr => usr._id !== _id);
                         setdisplayReview(remainingUsers);
                     }
-
                 });
         }
     }

@@ -1,14 +1,16 @@
 import React from 'react';
 
-const ReviewRow = ({ myReview }) => {
+const ReviewRow = ({ r }) => {
 
-    const { title, image, review } = myReview;
+    const { user, review } = r;
 
     return (
-        <div>
-            <img src={image} alt="" />
-            <h1>{title}</h1>
-            <p>{review}</p>
+        <div className="card card-side bg-base-100 p-6 shadow">
+            <figure><img src={user.photoURL} className="rounded-full w-24" alt="user" /></figure>
+            <div className="card-body">
+                <h2 className="card-title">{user.displayName}</h2>
+                <p>{review}</p>
+            </div>
         </div>
     );
 };

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Context/AuthProvider';
 import toast from 'react-hot-toast';
 import { Link, useLoaderData } from 'react-router-dom';
+import ReviewRow from './ReviewRow';
 
 const ReviewSection = () => {
 
@@ -16,7 +17,7 @@ const ReviewSection = () => {
     const [reviews, setReviews] = useState({});
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?_id=${service._id}`)
+        fetch(`https://digitech-server.vercel.app/reviews?_id=${service._id}`)
             .then(res => res.json())
             .then(data => setReviews(data))
 
@@ -28,7 +29,7 @@ const ReviewSection = () => {
         console.log(review);
 
         if (user?.email) {
-            fetch('http://localhost:5000/reviews', {
+            fetch('https://digitech-server.vercel.app/reviews', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -57,14 +58,17 @@ const ReviewSection = () => {
         <div>
             <div className='py-10 md:w-3/5 mx-auto'>
                 <div>
-                    <h3>Total Reviews: {reviews.length}</h3>
+                    <h3>Total Reviews: {reviews?.length}</h3>
                     <div className='my-5'>
+                        {
+                            reviews?.length && reviews.map(r => <ReviewRow key={r._id} r={r}></ReviewRow>)
+                        }
                     </div>
                 </div>
                 {
                     user?.email ?
                         <>
-                            <div className="card w-full shadow bg-base-100 my-10">
+                            <div className="card w-full shadow bg-sky-50 my-10">
                                 <div className='flex justify-center align-middle mt-5'>
                                     <img src={user.photoURL} className='rounded-full w-14' alt="" />
                                     <h3 className='text-2xl my-auto mx-3'>{user.displayName}</h3>

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaLongArrowAltRight } from "react-icons/fa";
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 
 const ServiceCard = ({ service }) => {
 
@@ -8,7 +10,7 @@ const ServiceCard = ({ service }) => {
 
     return (
         <div className="card card-compact bg-base-100 shadow-xl">
-            <figure><img src={image} alt="" className='h-80' /></figure>
+            <figure><PhotoProvider><PhotoView src={image}><img src={image} alt="" className='h-80' /></PhotoView></PhotoProvider></figure>
             <div className="card-body">
                 <h2 className="card-title">{title}</h2>
                 <h4 className='text-2xl'>${price}</h4>
