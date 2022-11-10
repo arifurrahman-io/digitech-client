@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 
 const ReviewCard = ({ rev }) => {
@@ -19,7 +20,7 @@ const ReviewCard = ({ rev }) => {
                 .then(data => {
                     console.log(data)
                     if (data.deletedCount > 0) {
-                        alert('Review Deleted!')
+                        toast.success('Review deleted successfully!')
                         const remainingUsers = displayReview
                             .filter(usr => usr._id !== _id);
                         setdisplayReview(remainingUsers);
