@@ -22,8 +22,10 @@ const Header = () => {
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <li><Link to='/'>Home</Link></li>
                         <li><Link to='/services'>Services</Link></li>
-                        <li><Link to='/addservices'>Add Service</Link></li>
-                        <li><Link to='/myreviews'>My Reviews</Link></li>
+                        <li><Link to='/myreviews' className='px-3 text-xl'>My Reviews</Link></li>
+                        <li><Link to='/addservices' className='px-3 text-xl'>Add Service</Link></li>
+                        <li><Link to='/blog'>Blog</Link></li>
+
                     </ul>
                 </div>
                 <Link to='/' className="normal-case text-xl"><img src={logo} className="w-28" alt="" /></Link>
@@ -32,8 +34,10 @@ const Header = () => {
                 <ul className="menu menu-horizontal p-0 text-xl font-semibold text-white">
                     <li><Link to='/'>Home</Link></li>
                     <li><Link to='/services'>Services</Link></li>
-                    <li><Link to='/addservices'>Add Service</Link></li>
-                    <li><Link to='/myreviews'>My Reviews</Link></li>
+                    <li><Link to='/myreviews' className='px-3 text-xl'>My Reviews</Link></li>
+                    <li><Link to='/addservices' className='px-3 text-xl'>Add Service</Link></li>
+                    <li><Link to='/blog'>Blog</Link></li>
+
                 </ul>
             </div>
             <div className="navbar-end text-white ">
