@@ -5,6 +5,7 @@ import { AuthContext } from '../../Context/AuthProvider';
 import img from '../../signup.jpg';
 import google from '../../google.png';
 import { GoogleAuthProvider } from 'firebase/auth';
+import { Helmet } from 'react-helmet';
 
 const SignIn = () => {
 
@@ -64,6 +65,9 @@ const SignIn = () => {
 
     return (
         <div className="hero w-full">
+            <Helmet>
+                <title>Sign In | GigiTech</title>
+            </Helmet>
             <div className="hero-content grid gap-20 md:grid-cols-2 flex-col lg:flex-row">
                 <div className="text-center">
                     <img className='w-full' src={img} alt="" />

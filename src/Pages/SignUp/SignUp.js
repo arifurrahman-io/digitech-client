@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import img from '../../signup.jpg'
 import { AuthContext } from '../../Context/AuthProvider';
 import toast from 'react-hot-toast';
+import { Helmet } from 'react-helmet';
 
 const SignUp = () => {
     const { createUser, updateUserProfile, loading } = useContext(AuthContext);
@@ -60,6 +61,9 @@ const SignUp = () => {
 
     return (
         <div className="hero w-full">
+            <Helmet>
+                <title>Sign Up | GigiTech</title>
+            </Helmet>
             <div className="hero-content grid gap-20 md:grid-cols-2 flex-col lg:flex-row">
                 <div className="text-center">
                     <img className='w-full' src={img} alt="" />

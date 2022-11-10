@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import { useLoaderData, useLocation, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const UpdateReview = () => {
 
@@ -47,6 +48,9 @@ const UpdateReview = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Update Review | GigiTech</title>
+            </Helmet>
             <form onSubmit={handleUpdateReview} className="card-body">
                 <div className="form-control">
                     <textarea onChange={handleInputChange} name='review' defaultValue={storedReview.review} className="textarea textarea-info" placeholder="write something about the service" required></textarea>

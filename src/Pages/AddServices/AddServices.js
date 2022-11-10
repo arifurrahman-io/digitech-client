@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import img from '../../datainput.png';
 import toast from 'react-hot-toast';
+import { Helmet } from 'react-helmet';
 
 const AddServices = () => {
 
@@ -38,6 +39,9 @@ const AddServices = () => {
 
     return (
         <div className='lg:flex'>
+            <Helmet>
+                <title>Add Service | GigiTech</title>
+            </Helmet>
             <div className='w-full lg:w-1/2'>
                 <img className='w-full' src={img} alt="" />
             </div>

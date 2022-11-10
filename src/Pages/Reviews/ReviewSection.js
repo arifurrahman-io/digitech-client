@@ -18,7 +18,7 @@ const ReviewSection = () => {
     const [reviews, setReviews] = useState({});
 
     useEffect(() => {
-        fetch(`https://digitech-server.vercel.app/reviews?id=${service.id}`)
+        fetch(`https://digitech-server.vercel.app/reviews?id${service.id}`)
             .then(res => res.json())
             .then(data => setReviews(data))
 

@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Context/AuthProvider';
 import ReviewCard from './ReviewCard';
+import { Helmet } from 'react-helmet';
 
 
 const Reviews = () => {
@@ -17,6 +18,9 @@ const Reviews = () => {
 
     return (
         <div className='my-10'>
+            <Helmet>
+                <title>My Reviews | GigiTech</title>
+            </Helmet>
             <div className='bg-sky-200 p-10 rounded-xl flex justify-center align-middle shadow-md mx-auto'>
                 <img src={photoURL} className="rounded-full w-24" alt="" />
                 <div className='my-auto ml-5 text-xl font-semibold'>

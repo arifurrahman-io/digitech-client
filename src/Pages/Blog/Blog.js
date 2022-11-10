@@ -1,12 +1,16 @@
 import React from 'react';
-import img1 from '../../sql_nosql.png'
-import img2 from '../../JWT.jpg'
-import img3 from '../../javascript-vs-nodejs.jpg'
-import img4 from '../../nodejs-requests.png'
+import img1 from '../../sql_nosql.png';
+import img2 from '../../JWT.jpg';
+import img3 from '../../javascript-vs-nodejs.jpg';
+import img4 from '../../nodejs-requests.png';
+import { Helmet } from 'react-helmet';
 
 const Blog = () => {
     return (
         <div className='my-5'>
+            <Helmet>
+                <title>Blog | GigiTech</title>
+            </Helmet>
             <div className='md:flex border border-b-4 border-cyan-500 my-4'>
                 <div className='p-4 md:w-1/2 my-auto'><img src={img1} className="rounded-2xl" alt="" /></div>
                 <div className='p-4 md:w-1/2'>
