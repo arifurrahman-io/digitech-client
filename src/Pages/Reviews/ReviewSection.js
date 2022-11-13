@@ -18,11 +18,11 @@ const ReviewSection = () => {
     const [reviews, setReviews] = useState({});
 
     useEffect(() => {
-        fetch(`https://digitech-server.vercel.app/reviews?id${service.id}`)
+        fetch(`https://digitech-server.vercel.app/reviews?id=${_id}`)
             .then(res => res.json())
             .then(data => setReviews(data))
 
-    }, [service.id]);
+    }, [_id]);
 
 
     const handleAddReview = event => {
